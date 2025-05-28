@@ -22,9 +22,9 @@ Hasil analisis ini bertujuan memberikan wawasan berbasis data guna mendukung pen
 
 ## Permasalahan (Problem Statement)
 
-1. Faktor-faktor apa saja yang menjadi penyebab utama terjadinya attrition atau pengunduran diri karyawan?  
-2. Mengapa tingkat attrition di perusahaan Jaya Jaya Maju mencapai angka yang cukup tinggi, yaitu sebesar 10%?  
-3. Apakah data internal HR yang dimiliki perusahaan sudah memenuhi standar kualitas dan kelengkapan untuk dianalisis secara akurat guna memahami attrition?
+1. Tingkat attrition di atas 10% menunjukkan banyak karyawan yang keluar dari perusahaan.
+2. Perusahaan Jaya Jaya Maju belum memiliki sistem atau alat yang mumpuni untuk memantau data karyawan secara real-time dan analitis.
+3. HR belum memanfaatkan data karyawan secara optimal untuk mengetahui pola-pola attrition dan faktor yang memengaruhinya.
 
 ## Tujuan (Goals)
 
@@ -39,7 +39,7 @@ Hasil analisis ini bertujuan memberikan wawasan berbasis data guna mendukung pen
 2. Menambahkan model K-Nearest Neighbors (KNN) sebagai model pembanding, guna mengevaluasi pengaruh skala data dan memperoleh wawasan tambahan dari pendekatan yang berbeda.  
 3. Mengelompokkan karyawan ke dalam beberapa segmen berdasarkan nilai probabilitas hasil prediksi Random Forest, agar dapat dilakukan intervensi yang lebih spesifik terhadap kelompok yang berisiko tinggi.
 
-## Data Understanding
+## Data Understanding and Data Preparation
 
 ### Deskripsi Dataset
 
@@ -233,42 +233,26 @@ Walaupun recall-nya masih rendah, model ini lebih andal untuk digunakan sebagai 
 
 ## Kesimpulan
 ### Evaluasi Relevansi dengan Hasil Tujuan
-**1. Faktor-faktor apa saja yang menjadi penyebab utama terjadinya attrition atau pengunduran diri karyawan?**
-**Jawaban:**
-Berdasarkan hasil analisis feature importance dari model Random Forest, berikut adalah 10 faktor utama yang paling berpengaruh terhadap kemungkinan seorang karyawan mengundurkan diri:
-1. Monthly Income (0.0638) – Pendapatan bulanan yang rendah menjadi faktor terbesar yang memengaruhi keputusan karyawan untuk resign. Hal ini mencerminkan pentingnya kompensasi yang kompetitif bagi retensi karyawan.
-2. Age (0.0619) – Usia berperan penting, di mana karyawan usia muda (28–40 tahun) cenderung lebih rentan mengalami attrition dibanding yang lebih senior
-3. Monthly Rate (0.0551) – Besarnya total kompensasi bulanan juga memengaruhi, mendukung temuan bahwa aspek finansial berperan besar dalam retensi.
-4. Daily Rate (0.0527) – Pendapatan harian turut memberikan kontribusi signifikan terhadap kemungkinan resign, memperkuat pola bahwa kompensasi merupakan isu utama.
-5. OverTime (0.0508) – Karyawan yang sering lembur cenderung lebih cepat burnout dan akhirnya memilih keluar dari perusahaan.
-6. Total Working Years (0.0488) – Pengalaman kerja yang tinggi cenderung meningkatkan stabilitas, namun karyawan berpengalaman juga mungkin merasa stagnan jika tidak ada peluang karier yang menarik.
-7. Distance From Home (0.0444) – Jarak tempat tinggal ke kantor memengaruhi kenyamanan dan waktu tempuh, yang berdampak pada keseimbangan hidup-kerja.
-8. Hourly Rate (0.0434) – Kompensasi per jam turut menjadi indikator yang penting, terutama untuk karyawan yang bekerja dengan jam kerja fleksibel.
-9. Years At Company (0.0375) – Masa kerja yang singkat umumnya berkorelasi positif dengan kemungkinan resign, yang menunjukkan masa awal adaptasi sangat krusial.
-10. Num Companies Worked (0.0353) – Karyawan dengan riwayat berpindah-pindah kerja cenderung lebih besar kemungkinannya untuk kembali berpindah.
+1. Permasalahan: Tingginya Tingkat Attrition (>10%)
+**Solusi**:
+Analisis feature importance dari model Random Forest menunjukkan bahwa kompensasi finansial (gaji, rate harian, bulanan, dan per jam) merupakan faktor utama penyebab karyawan mengundurkan diri. Selain itu, lembur berlebih, usia muda, masa kerja singkat, dan jarak rumah ke kantor juga berkontribusi signifikan.
+➡️ Rekomendasi tindakan:
+- Tinjau dan tingkatkan struktur kompensasi secara kompetitif.
+- Buat program pengurangan lembur dan peningkatan work-life balance.
+- Sediakan fleksibilitas kerja, seperti opsi hybrid atau remote untuk karyawan yang tinggal jauh.
+- Fokus pada strategi retensi untuk karyawan muda dan baru bergabung, seperti mentorship dan pengembangan karier.
 
-Dari sepuluh faktor tersebut, terlihat bahwa aspek kompensasi finansial (gaji bulanan, rate harian, rate bulanan, rate per jam) menjadi dominan. Selain itu, umur muda, lembur berlebihan, dan jarak rumah ke kantor juga sangat memengaruhi keputusan resign.
-________________________________________
-**2. Mengapa tingkat attrition di perusahaan Jaya Jaya Maju mencapai angka yang cukup tinggi, yaitu sebesar 10%?**
-**Jawaban:**
-Berdasarkan hasil analisis, tingginya angka attrition di perusahaan Jaya Jaya Maju disebabkan oleh kombinasi beberapa hal yang terlihat dari data:
-- Tingginya proporsi karyawan dengan pendapatan rendah, yang menjadi faktor utama dalam model Random Forest.
-- Overtime (lembur) yang tinggi, berkontribusi signifikan terhadap burnout.
-- Jarak tempat tinggal yang jauh, yang dapat mengganggu keseimbangan kerja dan kehidupan pribadi.
-- Banyak karyawan dengan usia muda dan masa kerja singkat, yang cenderung lebih belum settle dan memiliki kemungkinan resign lebih tinggi.
-- Beberapa karyawan memiliki riwayat sering berpindah perusahaan, yang dari segi perilaku kerja menunjukkan pola ketidakstabilan atau ekspektasi tinggi yang tidak terpenuhi.
+2. Permasalahan: Ketiadaan Sistem Pemantauan Karyawan yang Efektif
+**Solusi**:
+Perusahaan belum memiliki sistem yang mampu memantau faktor-faktor risiko attrition secara real-time. Padahal data yang ada sudah cukup bersih dan bisa dianalisis lebih lanjut.
+➡️ Rekomendasi tindakan:
+- Bangun business dashboard interaktif yang menampilkan metrik penting seperti tingkat attrition per departemen, tren resign bulanan, dan kelompok risiko tinggi.
+- Tambahkan sistem early warning untuk mengidentifikasi potensi resign berdasarkan pola perilaku (lembur tinggi, usia muda, masa kerja pendek, dsb).
 
-Tingkat attrition yang tinggi kemungkinan juga berkaitan dengan kurangnya strategi retensi berdasarkan data, misalnya sistem kompensasi yang belum optimal, tidak ada program pengurangan lembur, atau kurangnya strategi personalisasi kesejahteraan karyawan.
-
-________________________________________
-**3. Apakah data internal HR yang dimiliki perusahaan sudah memenuhi standar kualitas dan kelengkapan untuk dianalisis secara akurat guna memahami attrition?**
-**Jawaban:**
-Data HR perusahaan ini cukup layak untuk dianalisis, dengan beberapa catatan penting:
-- Data sudah dibersihkan dari duplikasi dan memiliki format tipe data yang sesuai.
-- Terdapat 412 data kosong pada kolom Attrition, yang telah dipisahkan dari data training agar tidak memengaruhi proses supervised learning.
-- Kolom seperti EmployeeCount, Over18, dan StandardHours yang memiliki variansi nol atau konstan, telah dihapus karena tidak berkontribusi pada prediksi.
-- Fitur kategorikal telah diubah menjadi numerik (dummy variable) untuk memastikan kompatibilitas model.
-
-Secara keseluruhan, data HR yang tersedia cukup representatif dan informatif, tetapi pengumpulan data bisa lebih ditingkatkan ke depan, seperti:
-- Menambahkan fitur baru seperti skor kinerja real-time, absensi, keluhan ke HR, atau hasil evaluasi rutin.
-- Melakukan pencatatan yang lebih lengkap dan tidak missing, terutama untuk label seperti Attrition.
+3. Permasalahan: Belum Optimalnya Pemanfaatan Data HR
+**Solusi**:
+Data HR sudah cukup baik untuk dianalisis, namun belum digunakan secara maksimal untuk mendukung pengambilan keputusan berbasis data. Beberapa variabel penting masih bisa dikembangkan.
+➡️ Rekomendasi tindakan:
+- Lanjutkan pengembangan data dengan menambahkan fitur-fitur tambahan seperti absensi, evaluasi kerja, kepuasan karyawan, dan data keluhan.
+- Gunakan model prediktif seperti Random Forest untuk segmentasi risiko attrition secara berkala.
+- Lakukan pelatihan data literacy bagi tim HR agar mereka dapat lebih memahami dan menggunakan data untuk merancang kebijakan retensi.
