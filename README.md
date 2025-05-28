@@ -40,6 +40,23 @@ Hasil analisis ini bertujuan memberikan wawasan berbasis data guna mendukung pen
 3. Mengelompokkan karyawan ke dalam beberapa segmen berdasarkan nilai probabilitas hasil prediksi Random Forest, agar dapat dilakukan intervensi yang lebih spesifik terhadap kelompok yang berisiko tinggi.
 
 ## Data Understanding and Data Preparation
+### Setup Environment (Google Colab)
+Proyek ini dijalankan di Google Colab dengan Python versi 3.8.16. Berikut adalah daftar library utama yang digunakan:
+
+- `pandas`
+- `numpy`
+- `matplotlib`
+- `seaborn`
+- `tensorflow`
+- `joblib`
+- `scipy`
+- `shap`
+
+Untuk memastikan semua library tersedia, jalankan perintah berikut di awal notebook:
+
+```python
+!pip install pandas numpy matplotlib seaborn tensorflow joblib scipy shap
+```
 
 ### Deskripsi Dataset
 
